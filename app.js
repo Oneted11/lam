@@ -34,7 +34,7 @@ router.get("/signup", function(req, res) {
 router.post("/signup", function(req, res, next) {
   var username = req.body.username;
   var password = req.body.password;
-  user.findOne({ username: username }, function(err, user) {
+  User.findOne({ username: username }, function(err, user) {
     if (err) { return next(err); }
     if (user) {
       req.flash("error", "User already exists");
